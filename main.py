@@ -14,7 +14,6 @@ from forms import CreatePostForm,RegisterForm,LoginForm,CommentForm,ContactForm
 from typing import List
 import os
 from dotenv import load_dotenv
-
 '''
 On Windows type:
 python -m pip install -r requirements.txt
