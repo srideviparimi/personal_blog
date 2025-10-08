@@ -27,7 +27,6 @@ jobs:
       - name: Run tests (optional)
         run: |
           echo "No tests configured yet"
-          # pytest tests/
 
       - name: Build Docker image
         run: |
