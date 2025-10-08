@@ -30,6 +30,7 @@ jobs:
 
       - name: Build Docker image
         run: |
+          pwd
           docker build -t personal-blog .
 
       - name: Deploy to Render
