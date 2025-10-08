@@ -14,6 +14,8 @@ from forms import CreatePostForm,RegisterForm,LoginForm,CommentForm,ContactForm
 from typing import List
 import os
 from dotenv import load_dotenv
+from flask import Flask
+from prometheus_flask_exporter import PrometheusMetrics
 '''
 On Windows type:
 python -m pip install -r requirements.txt
@@ -23,6 +25,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 ckeditor = CKEditor(app)
 Bootstrap5(app)
+metrics = PrometheusMetrics(app)
 # TODO: Configure Flask-Login
 login_manager=LoginManager()
 login_manager.init_app(app)
