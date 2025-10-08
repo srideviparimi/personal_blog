@@ -15,7 +15,7 @@ from typing import List
 import os
 from dotenv import load_dotenv
 from flask import Flask
-from prometheus_flask_exporter import PrometheusMetrics
+from prometheus-flask-exporter import PrometheusMetrics
 '''
 On Windows type:
 python -m pip install -r requirements.txt
