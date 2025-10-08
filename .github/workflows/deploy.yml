@@ -29,6 +29,10 @@ jobs:
           echo "No tests configured yet"
           # pytest tests/
 
+      - name: Build Docker image
+        run: |
+          docker build -t personal-blog .
+
       - name: Deploy to Render
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
