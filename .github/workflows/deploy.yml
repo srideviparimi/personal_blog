@@ -1,0 +1,42 @@
+name: Deploy Flask App to Render
+
+on:
+  push:
+    branches:
+      - main  # Deploy whenever you push to main
+    workflow_dispatch:  # Manual trigger option
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests (optional)
+        run: |
+          echo "No tests configured yet"
+          # pytest tests/
+
+      - name: Deploy to Render
+        env:
+          RENDER_API_KEY: "rnd_5kSy3gc2drZMeWs0Lvz9ZQrdAcw9"
+          SERVICE_ID: "srv-d0mk26umcj7s739cijdg"
+        run: |
+          echo "Triggering Render Deployment..."
+          curl -X POST \
+          -H "Accept: application/json" \
+          -H "Authorization: Bearer $RENDER_API_KEY" \
+          -d "{\"serviceId\": \"$SERVICE_ID\"}" \
+          https://api.render.com/v1/services/$SERVICE_ID/deploys
