@@ -77,10 +77,10 @@ class Contact(UserMixin,db.Model):
     email:Mapped[str]=mapped_column(String(150),nullable=False)
     message:Mapped[str]=mapped_column(String(2000),nullable=False)
     phone:Mapped[str]=mapped_column(String(20),nullable=False)
-'''
+
 with app.app_context():
     db.create_all()
-'''
+
 # TODO: Use Werkzeug to hash the user's password when creating a new user.
 @app.route('/register',methods=["GET","POST"])
 def register():
