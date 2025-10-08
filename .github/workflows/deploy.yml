@@ -31,8 +31,8 @@ jobs:
 
       - name: Deploy to Render
         env:
-          RENDER_API_KEY: "rnd_5kSy3gc2drZMeWs0Lvz9ZQrdAcw9"
-          SERVICE_ID: "srv-d0mk26umcj7s739cijdg"
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          SERVICE_ID: ${{ secrets.SERVICE_ID }}
         run: |
           echo "Triggering Render Deployment..."
           curl -X POST \
