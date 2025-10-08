@@ -30,8 +30,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          pwd
-          docker build -t personal-blog .
+          docker build -t personal-blog -f prometheus/Dockerfile .
 
       - name: Deploy to Render
         env:
